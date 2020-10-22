@@ -1,4 +1,5 @@
 """
+Based on https://sourcemaking.com/design_patterns/facade/cpp/1
  "facade" object that provides a single, simplified interface to the many, potentially complex, individual interfaces within the subsystem.
  In this example, the "subsystem" for responding to a networking service request has been modeled, and a facade (FacilitiesFacade) interposed. The facade "hides" the twisted and bizarre choreography necessary to satisfy even the most basic of requests.
 """
