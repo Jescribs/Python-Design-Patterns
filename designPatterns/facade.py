@@ -7,7 +7,8 @@ from enum import Enum
 
 
 class States(Enum):
-    'Enumeration with the different states of a network service request'
+    """Enumeration with the different states of a network service request"""
+
     Received = 0
     DenyAllKnowledge = 1
     ReferClientToFacilities = 2
@@ -61,7 +62,7 @@ class StatesFacade(Enum):
 
 
 class MisDepartment:
-    'Department that allows request for network servcie and process its states in a very efficient way '
+    """Department that allows request for network servcie and process its states in a very efficient way """
 
     def __init__(self):
         self.__state = 0
@@ -77,7 +78,7 @@ class MisDepartment:
 
 
 class ElectricianUnion:
-    'Department that allows request for network servcie and process its states in a very efficient way '
+    """Department that allows request for network servcie and process its states in a very efficient way """
 
     def __init__(self):
         self.__state = 0
@@ -93,7 +94,7 @@ class ElectricianUnion:
 
 
 class FacilitiesDepartment:
-    'Department that allows request for network servcie and process its states in a very efficient way '
+    """Department that allows request for network servcie and process its states in a very efficient way """
 
     def __init__(self):
         self.__state = 0
@@ -109,7 +110,7 @@ class FacilitiesDepartment:
 
 
 class FacilitiesFacade:
-    'Department that allows request for network servcie and process its states in a very efficient way '
+    """Department that allows request for network servcie and process its states in a very efficient way """
 
     def __init__(self):
         self.__state = 0
@@ -135,7 +136,9 @@ class FacilitiesFacade:
             if self.__engineer.checkOnStatus():
                 self.__state += 1
                 self.__electrician.submitNetworkRequest()
-                print("submitted to Electrician - ", self.__count, " phone calls so far")
+                print(
+                    "submitted to Electrician - ", self.__count, " phone calls so far"
+                )
 
         elif StatesFacade(self.__state) == StatesFacade.SubmitToElectrician:
             # If electrician is complete, forward to technician
@@ -158,8 +161,8 @@ class FacilitiesFacade:
 facilities = FacilitiesFacade()
 facilities.submitNetworkRequest()
 
-# Keep checking until job is complete 
-while not(facilities.checkOnStatus()):
+# Keep checking until job is complete
+while not (facilities.checkOnStatus()):
     pass
 
 print("job completed after only ", facilities.getNumberOfCalls(), " phone calls")
